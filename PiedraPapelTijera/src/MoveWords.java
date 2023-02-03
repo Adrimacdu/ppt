@@ -59,15 +59,67 @@ public class MoveWords{
     	return -1;
     }
 
-    public static int checkWinner(String first, String second){
-	    int first_i, second_i;
+   public static int checkWinner(String first, String second){
+        int first_i, second_i;
 
-	    first_i = getIndex(first);
-	    second_i = getIndex(second);
+        first_i = getIndex(first);
+        second_i = getIndex(second);
 
-	    if (first_i == second_i) return EMPATE;
-	    
-	    return (( (first_i +1) % validMoves.length ) == second_i ) ? GANA: PIERDE;
-	}
+        if (first_i == second_i) return EMPATE;
+
+        switch (first_i){
+            case 0:
+                if (second_i == 1){
+                    return GANA;
+                } else if (second_i == 2){
+                    return PIERDE;
+                } else if (second_i == 3){
+                    return PIERDE;
+                } else if (second_i == 4){
+                    return GANA;
+                }
+            case 1:
+                if (second_i == 0){
+                    return PIERDE;
+                } else if (second_i == 2){
+                    return GANA;
+                } else if (second_i == 3){
+                    return GANA;
+                } else if (second_i == 4){
+                    return PIERDE;
+                }
+            case 2:
+                if (second_i == 0){
+                    return GANA;
+                } else if (second_i == 1){
+                    return PIERDE;
+                } else if (second_i == 3){
+                    return PIERDE;
+                } else if (second_i == 4){
+                    return GANA;
+                }
+            case 3:
+                if (second_i == 0){
+                    return PIERDE;
+                } else if (second_i == 1){
+                    return GANA;
+                } else if (second_i == 2){
+                    return GANA;
+                } else if (second_i == 4){
+                    return PIERDE;
+                }
+            case 4:
+                if (second_i == 0){
+                    return PIERDE;
+                } else if (second_i == 1){
+                    return GANA;
+                } else if (second_i == 2){
+                    return PIERDE;
+                } else if (second_i == 3){
+                    return GANA;
+                }
+        }
+        return -1;
+    }
 	
 } 
