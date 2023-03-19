@@ -1,0 +1,46 @@
+@startuml
+class Parser {
+- MoveWords moves
+- Scanner reader
++ <<Create>> Parser()
++ void showCommands()
++ Move newRandomMove()
++ Move getMove()
+}
+class Game {
+- Parser : parser
++ <<Create>> Game()
+- void welcome()
+- void printHelp()
+- Move computerMove()
+- void printWinner(int)
+- void printMoves(Move,Move)
+- boolean processMove(Move)
++ void playGame()
++ {static} void main(String[])
+}
+class MoveWords {
++ {static} int EMPATE
++ {static} int GANA
++ {static} int PIERDE
+- {static} String[] validMoves
+- {static} String[] validCommands
+- Random rnd
++ <<Create>> MoveWords()
++ boolean isValidMoveCommand(String)
++ String randomMove()
++ void showMoves()
++ void showCommands()
++ void showWords()
+- {static} int getIndex(String)
++ {static} int checkWinner(String,String)
+}
+class Move {
+- String move
++ <<Create>> Move()
++ <<Create>> Move(String)
++ String getMove()
++ boolean isUnknown()
++ int beats(Move)
+}
+@enduml
